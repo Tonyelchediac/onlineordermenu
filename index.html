@@ -10,6 +10,14 @@
 </head>
 <body>
 
+      <!-- Pre Loader -->
+  <div id="preloader">
+    <div class="dot1"><i class="fa-solid fa-burger"></i></div>
+    <div class="dot2"><i class="fa-solid fa-pizza-slice"></i></div>
+    <div class="dot3"><i class="fa-solid fa-mug-saucer"></i></div>
+  </div>
+
+    <!-- header -->
     <header>
         <h1>Tony's Food</h1>
         <button id="cart-btn"><i class="fas fa-shopping-cart"></i>
@@ -483,6 +491,38 @@
             <p id="Drinks">Drinks</p>
         </div>
 
+        <div class="item" data-name="Expresso" data-price="1.50">
+            <img src="images/expresso.jpg" alt="Pepsi">
+            <div class="itemnameanddes">
+                <h2>Expresso</h2>
+                <p class="description">Refreshing with expresso.</p>
+            </div>
+            <div class="priceandorder">
+                <p>$1.50</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="item" data-name="Nescafe" data-price="2.50">
+            <img src="images/nescafe.jpg" alt="Pepsi">
+            <div class="itemnameanddes">
+                <h2>Nescafe</h2>
+                <p class="description">3in1, 2in1, black.</p>
+            </div>
+            <div class="priceandorder">
+                <p>$2.50</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
         <div class="item" data-name="Pepsi" data-price="2.00">
             <img src="images/pepsi.jpg" alt="Pepsi">
             <div class="itemnameanddes">
@@ -603,5 +643,15 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        var loader = document.getElementById("preloader");
+        window.addEventListener("load", function () {
+          loader.classList.add("fade-out");
+          setTimeout(function () {
+            loader.style.display = "none";
+          }, 500);
+        });
+      </script>
 </body>
 </html>
