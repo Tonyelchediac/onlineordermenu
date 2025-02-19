@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Ordering</title>
+    <link rel="shortcut icon" href="images/tony's food logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <h1>Food Ordering</h1>
+        <h1>Tony's Food</h1>
         <button id="cart-btn"><i class="fas fa-shopping-cart"></i>
         <span id="cart-count">0</span></button>
     </header>
+
+    <!-- HOME -->
+     <section id="home">
+        <div class="home-container">
+            <p>Tony's Food</p>
+        </div>
+     </section>
+
+    <!-- MENU ORDER -->
+
+    <div class="menu-title">
+        <p>Menu</p>
+    </div>
 
     <div class="menu">
 
@@ -35,7 +49,7 @@
         </div>
         
         <div class="item" data-name="Pepperoni Pizza" data-price="10.00"> 
-            <img src="images/pizza-pep.jpg" alt="Pepperoni Pizza">
+            <img src="images/pepperoni.jpg" alt="Pepperoni Pizza">
             <div class="itemnameanddes">
                 <h2>Pepperoni Pizza</h2>
                 <p class="description">Tomato Sauce, Mozzarella Cheese, Pepperoni</p>
@@ -69,7 +83,7 @@
         </div>
         
         <div class="item" data-name="BBQ Chicken Pizza" data-price="12.00"> 
-            <img src="images/pizza-chick.jpg" alt="BBQ Chicken Pizza">
+            <img src="images/chicken.jpg" alt="BBQ Chicken Pizza">
             <div class="itemnameanddes">
                 <h2>BBQ Chicken Pizza</h2>
                 <p class="description">BBQ Sauce, Mozzarella Cheese, Grilled Chicken, Onions</p>
@@ -120,7 +134,7 @@
         </div>
         
         <div class="item" data-name="Veggie Pizza" data-price="10.50"> 
-            <img src="images/pizza-veg.jpg" alt="Veggie Pizza">
+            <img src="images/veggie.jpg" alt="Veggie Pizza">
             <div class="itemnameanddes">
                 <h2>Veggie Pizza</h2>
                 <p class="description">Tomato Sauce, Mozzarella Cheese, Bell Peppers, Mushrooms, Onions, Olives</p>
@@ -163,8 +177,8 @@
         <h2>Cart</h2>
         <ul id="cart-items"></ul>
         <div class="cart-buttons">
-            <button id="clear-cart">Clear Cart</button>
             <button id="order-btn">Order on WhatsApp</button>
+            <button id="clear-cart">Clear Cart</button>
             <button id="close-cart">Close</button>
         </div>
     </div>

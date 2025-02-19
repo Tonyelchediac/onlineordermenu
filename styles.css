@@ -1,13 +1,21 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Oleo+Script:wght@400;700&family=Press+Start+2P&family=Rubik+Mono+One&display=swap');
+
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
     background-color: gray !important;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
 header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,18 +23,21 @@ header {
     background-color: black;
     color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 5;
 }
 header h1 {
     margin: 0;
     font-size: 24px;
+    font-family: "Oleo Script", serif;
 }
+
 header button {
     background: none;
     border: none;
     color: white;
     font-size: 20px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-right: 10px;
     transition: transform 0.2s;
 }
 
@@ -41,6 +52,60 @@ header button {
     font-size: 15px;
     height: 20px;
     width: 20px;
+}
+
+/* home */
+#home{
+    background: url("images/tony's food logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 90% 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    width: 100%;
+    height: 50vh;
+}
+
+#home::before{
+    content: " ";
+    background-color: rgb(51, 51, 51, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 70px;
+    width: 100%;
+    height: 50vh;
+}
+
+.home-container{
+    z-index: 0;
+}
+
+.home-container p{
+    font-size: 100px;
+    color: orange;
+    font-weight: bold;
+    font-family: "Oleo Script", serif;
+    text-shadow: #FFD500 0px 0px 3px;
+}
+
+/* menu title */
+.menu-title{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-title p{
+    font-size: 60px;
+    color: orange;
+    font-weight: bold;
+    font-family: "Oleo Script", serif;
+    border-bottom: 2px solid orange;
 }
 
 /* Menu Styles */
@@ -63,6 +128,7 @@ header button {
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -80,13 +146,15 @@ header button {
 }
 
 .item h2 {
+    font-family: "Oleo Script", serif;
     margin: 0 0 5px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.2;
 }
 
 .item .description {
-    font-size: 14px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
     color: gray;
     margin: 0;
 }
@@ -100,6 +168,7 @@ header button {
 }
 
 .item p {
+    font-family: "Oleo Script", serif;
     margin: 0 0 10px;
     font-size: 18px;
     color: orange;
@@ -156,12 +225,13 @@ header button {
     position: fixed;
     right: -300px;
     top: 0;
-    width: 250px;
+    width: 300px;
     height: 100vh;
     background: gray;
     transition: 0.3s;
     padding: 20px;
     border-left: 2px solid orange;
+    z-index: 6;
 }
 .cart-container.active {
     right: 0;
@@ -176,7 +246,7 @@ header button {
 #cart-items {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px;
+    margin: 0 0 10px;
 }
 #cart-items li {
     display: flex;
@@ -192,6 +262,14 @@ header button {
 }
 #cart-items li span {
     font-size: 16px;
+}
+
+#cart-items .total {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-align: right;
+    margin-top: 10px;
 }
 
 .cart-buttons{
@@ -213,16 +291,12 @@ header button {
     background-color: orange;
     color: white;
 }
-#clear-cart:hover {
-    background-color: #e04343;
-}
+
 #order-btn {
     background-color: #4caf50;
     color: white;
 }
-#order-btn:hover {
-    background-color: #45a049;
-}
+
 #close-cart {
     background-color: red;
     color: white;
@@ -232,6 +306,23 @@ header button {
 
 
 @media (max-width:768px){
+
+    .home-container p{
+        font-size: 50px;
+    }
+
+    .menu-title{
+        width: 100%;
+        height: 10vh;
+    }
+    
+    .menu-title p{
+        font-size: 30px;
+        color: orange;
+        font-weight: bold;
+        font-family: "Oleo Script", serif;
+    }
+
     .menu {
         display: flex;
         flex-wrap: wrap;
@@ -283,7 +374,7 @@ header button {
     }
 
    .item .description{
-        font-size: 10px;
+        font-size: 12px;
         color: gray;
     }
 }
