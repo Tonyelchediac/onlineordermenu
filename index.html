@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>Food Ordering</h1>
+        <button id="cart-btn"><i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span></button>
+    </header>
+
+    <div class="menu">
+
+        <div class="item" data-name="Margherita Pizza" data-price="8.00"> 
+            <img src="images/margherita.jpg" alt="Margherita Pizza">
+            <div class="itemnameanddes">
+                <h2>Margherita Pizza</h2>
+                <p class="description">Tomato Sauce, Mozzarella Cheese, Basil</p>
+            </div>
+            <div class="priceandorder">
+                <p>$8.00</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" data-name="Pepperoni Pizza" data-price="10.00"> 
+            <img src="images/pizza-pep.jpg" alt="Pepperoni Pizza">
+            <div class="itemnameanddes">
+                <h2>Pepperoni Pizza</h2>
+                <p class="description">Tomato Sauce, Mozzarella Cheese, Pepperoni</p>
+            </div>
+            <div class="priceandorder">
+                <p>$10.00</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" data-name="Hawaiian Pizza" data-price="11.00"> 
+            <img src="images/hawaiian.jpg" alt="Hawaiian Pizza">
+            <div class="itemnameanddes">
+                <h2>Hawaiian Pizza</h2>
+                <p class="description">Tomato Sauce, Mozzarella Cheese, Ham, Pineapple</p>
+            </div>
+            <div class="priceandorder">
+                <p>$11.00</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" data-name="BBQ Chicken Pizza" data-price="12.00"> 
+            <img src="images/pizza-chick.jpg" alt="BBQ Chicken Pizza">
+            <div class="itemnameanddes">
+                <h2>BBQ Chicken Pizza</h2>
+                <p class="description">BBQ Sauce, Mozzarella Cheese, Grilled Chicken, Onions</p>
+            </div>
+            <div class="priceandorder">
+                <p>$12.00</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" data-name="Four Cheese Pizza" data-price="13.00"> 
+            <img src="images/four-cheese.jpg" alt="Four Cheese Pizza">
+            <div class="itemnameanddes">
+                <h2>Four Cheese Pizza</h2>
+                <p class="description">Mozzarella, Parmesan, Gorgonzola, Ricotta</p>
+            </div>
+            <div class="priceandorder">
+                <p>$13.00</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" data-name="Meat Lovers Pizza" data-price="14.00"> 
+            <img src="images/meat-lovers.jpg" alt="Meat Lovers Pizza">
+            <div class="itemnameanddes">
+                <h2>Meat Lovers Pizza</h2>
+                <p class="description">Tomato Sauce, Mozzarella Cheese, Pepperoni, Sausage, Bacon, Ham</p>
+            </div>
+            <div class="priceandorder">
+                <p>$14.00</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" data-name="Veggie Pizza" data-price="10.50"> 
+            <img src="images/pizza-veg.jpg" alt="Veggie Pizza">
+            <div class="itemnameanddes">
+                <h2>Veggie Pizza</h2>
+                <p class="description">Tomato Sauce, Mozzarella Cheese, Bell Peppers, Mushrooms, Onions, Olives</p>
+            </div>
+            <div class="priceandorder">
+                <p>$10.50</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" data-name="Truffle Pizza" data-price="15.00"> 
+            <img src="images/truffle.jpg" alt="Truffle Pizza">
+            <div class="itemnameanddes">
+                <h2>Truffle Pizza</h2>
+                <p class="description">White Sauce, Mozzarella Cheese, Truffle Oil, Mushrooms</p>
+            </div>
+            <div class="priceandorder">
+                <p>$15.00</p>
+                <button class="add-to-order">+</button>
+                <div class="quantity hidden">
+                    <button class="minus">-</button>
+                    <span class="qty">1</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+
+    <div id="cart" class="cart-container">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <div class="cart-buttons">
+            <button id="clear-cart">Clear Cart</button>
+            <button id="order-btn">Order on WhatsApp</button>
+            <button id="close-cart">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
