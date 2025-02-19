@@ -101,11 +101,45 @@ header button {
 }
 
 .menu-title p{
+    scroll-margin-top: 150px;
     font-size: 60px;
     color: orange;
     font-weight: bold;
     font-family: "Oleo Script", serif;
     border-bottom: 2px solid orange;
+}
+
+/* menu buttons for items found */
+#menuButtons {
+    height: auto;
+    width: 100%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 70px;
+}
+
+.menu-buttons {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 10px;
+}
+
+.menu-buttons button {
+    background-color: black;
+    color: orange;
+    width: 130px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-family: "Oleo Script", serif;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* Menu Styles */
@@ -223,9 +257,9 @@ header button {
 /* Cart Styles */
 .cart-container {
     position: fixed;
-    right: -300px;
+    right: -500px;
     top: 0;
-    width: 300px;
+    width: 310px;
     height: 100vh;
     background: gray;
     transition: 0.3s;
@@ -277,7 +311,7 @@ header button {
     padding-top: 10px;
 }
 
-#clear-cart, #order-btn, #close-cart {
+#clear-cart, #order-btn, #close-cart, #order-btn-delivery {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
@@ -286,21 +320,42 @@ header button {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
 #clear-cart {
     background-color: orange;
-    color: white;
+    color: black;
 }
 
 #order-btn {
     background-color: #4caf50;
-    color: white;
+    color: black;
+}
+
+#order-btn-delivery {
+    background-color: white;
+    color: black;
 }
 
 #close-cart {
     background-color: red;
     color: white;
 }
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Oleo Script", serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
 
 
 
@@ -313,7 +368,7 @@ header button {
 
     .menu-title{
         width: 100%;
-        height: 10vh;
+        height: 8vh;
     }
     
     .menu-title p{
@@ -371,6 +426,7 @@ header button {
     .quantity span{
         font-size: 20px;
         font-weight: bold;
+        margin-bottom: 5px;
     }
 
    .item .description{

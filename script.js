@@ -4,6 +4,7 @@ const cartCount = document.getElementById("cart-count");
 const cartItems = document.getElementById("cart-items");
 const cartContainer = document.getElementById("cart");
 const orderBtn = document.getElementById("order-btn");
+const orderBtnDelivery = document.getElementById("order-btn-delivery");
 const closeCartBtn = document.getElementById("close-cart");
 const clearCartBtn = document.getElementById("clear-cart");
 
@@ -214,3 +215,7 @@ orderBtn.addEventListener("click", function () {
     let whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; // Change the phone number here
     window.open(whatsappURL, "_blank");
 });
+
+orderBtnDelivery.addEventListener( "click", ()=>{
+    alert("Delivery service is not available yet.");
+})
