@@ -359,7 +359,7 @@ footer {
     font-weight: bold;
 }
 
-
+/* takeaway alert */
 #Takeaway {
     position: fixed;
     top: 0;
@@ -387,6 +387,13 @@ footer {
     justify-content: space-between; 
     height: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.takeaway-container h2{
+    color: orange;
+    margin-bottom: 20px;
+    font-family: "Oleo Script", serif;
+    text-align: center;
 }
 
 #Takeaway p {
@@ -436,7 +443,98 @@ footer {
     color: black;
 }
 
+/* Delivery Alert */
+#Delivery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    padding: 20px;
+}
 
+#Delivery.active {
+    display: flex;
+}
+
+.delivery-container {
+    background: gray;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+}
+
+.delivery-container h2 {
+    color: orange;
+    margin-bottom: 15px;
+    font-family: "Oleo Script", serif;
+    text-align: center;
+}
+
+#Delivery h1 {
+    color: orange;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Oleo Script", serif;
+}
+
+#Delivery input,
+#Delivery select {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#map {
+    height:300px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.closeDelivery {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+}
+
+#delivery-order-btn{
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    background-color: #4caf50;
+    color: black;
+}
 
 
 

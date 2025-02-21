@@ -9,9 +9,10 @@ const orderBtn = document.getElementById("order-btn");
 const orderBtnDelivery = document.getElementById("order-btn-delivery");
 const closeCartBtn = document.getElementById("close-cart");
 const clearCartBtn = document.getElementById("clear-cart");
-const takeawayalert = document.getElementById("Takeaway");
+const takeawayAlert = document.getElementById("Takeaway");
 const closeTakeaway = document.querySelector(".closeTakeaway");
-
+const deliveryAlert = document.getElementById("Delivery");
+const closeDelivery = document.querySelector(".closeDelivery");
 
 // Open cart
 cartBtn.addEventListener("click", function () {
@@ -190,28 +191,36 @@ function generateOrderID() {
 }
 
 // Send order to WhatsApp
+// call takeaway Alert
 callTakeaway.addEventListener("click", ()=> {
-    takeawayalert.classList.add("active");
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }else{
+    takeawayAlert.classList.add("active");
+    }
 });
 
 closeTakeaway.addEventListener("click", () =>{
-    takeawayalert.classList.remove("active");
+    takeawayAlert.classList.remove("active");
 });
 
 document.getElementById("order-btn").addEventListener("click", function () {
 
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-    }
     const selectedBranch = document.getElementById("selectBranch").value;
     const phoneNumberInput = document.querySelector("#Takeaway input[type='number']");
     const phoneNumber = phoneNumberInput.value.trim();
 
-    if (!phoneNumber || phoneNumber.length < 7) {
+    if (!phoneNumber || phoneNumber.length < 8) {
         alert("Please enter a valid phone number.");
         return;
     }
+
+    if(selectedBranch === "Select"){
+        alert('Please select the Branch');
+        return;
+    }
+
     let orderID = generateOrderID();
     let orderType = "Takeaway";
 
@@ -237,6 +246,96 @@ document.getElementById("order-btn").addEventListener("click", function () {
     window.open(whatsappURL, "_blank");
 });
 
-orderBtnDelivery.addEventListener( "click", ()=>{
-    alert("Delivery service is not available yet.");
-})
+// call delivery Alert
+orderBtnDelivery.addEventListener("click", ()=> {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }else{
+    deliveryAlert.classList.add("active");
+    }
+});
+
+closeDelivery.addEventListener("click", () =>{
+    deliveryAlert.classList.remove("active");
+});
+
+
+// map and delivery Alert
+
+let map, marker;
+
+function initMap() {
+    const defaultLocation = { lat: 34.0, lng: 35.5018 };
+
+    map = L.map('map').setView([defaultLocation.lat, defaultLocation.lng], 10);
+
+    const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri & contributors',
+    });
+
+    const labels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri & contributors',
+    });
+
+    satellite.addTo(map);
+    labels.addTo(map);
+
+    marker = L.marker([defaultLocation.lat, defaultLocation.lng], { draggable: true })
+        .addTo(map)
+
+    map.on('click', function (event) {
+        marker.setLatLng(event.latlng);
+    });
+
+    marker.on('dragend', function (event) {
+        let position = event.target.getLatLng();
+        marker.setLatLng(position);
+    });
+}
+
+function getMarkerPosition() {
+  const latLng = marker.getLatLng();
+  return {
+    lat: latLng.lat,
+    lng: latLng.lng,
+  };
+}
+
+document.getElementById('delivery-order-btn').addEventListener('click', function () {
+  const name = document.getElementById('name').value.trim();
+  const phoneNumber = document.querySelector('#Delivery input[type="number"]').value.trim();
+  const selectedBranch = document.getElementById('selectBranchDelivery').value;
+  const position = getMarkerPosition();
+  if (!name || !phoneNumber || phoneNumber.length < 8) {
+    alert('Please enter a valid name and phone number.');
+    return;
+  }
+  if (selectedBranch === 'Select') {
+    alert('Please select a branch.');
+    return;
+  }
+
+  let orderID = generateOrderID();
+  let orderType = 'Delivery';
+  let message = `Location: https://www.google.com/maps?q=${position.lat},${position.lng}\n\n`;
+  message += `*Hi Tony's Food*\n`;
+  message += `New Food Order\n`;
+  message += `Order ID: *#${orderID}*\n`;
+  message += `Branch: *${selectedBranch}*\n`;
+  message += `Customer Name: *${name}*\n`;
+  message += `Phone: *${phoneNumber}*\n\n`;
+  message += `Order Details:\n`;
+  let total = 0;
+  cart.forEach(item => {
+    message += `${item.name} x ${item.quantity} - $${(item.price * item.quantity).toFixed(2)}\n`;
+    total += item.price * item.quantity;
+  });
+  message += `\nTotal: *$${total.toFixed(2)}*\n`;
+  message += `Order Type: *${orderType}*\n\n`;
+  message += `Thank you Tony's!`;
+  let whatsappURL = `https://wa.me/+96171096971?text=${encodeURIComponent(message.trim())}`;
+  window.open(whatsappURL, '_blank');
+});
+
+window.onload = initMap;
