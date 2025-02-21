@@ -613,9 +613,13 @@ footer {
     }
 
     #Delivery{
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: normal;
+    }
+
+    #Delivery.active{
+        display: flex;
     }
 }
 
