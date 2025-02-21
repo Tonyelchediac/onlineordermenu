@@ -455,7 +455,6 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 7;
-    padding: 20px;
 }
 
 #Delivery.active {
@@ -465,19 +464,19 @@ footer {
 .delivery-container {
     background: gray;
     padding: 20px;
+    margin: 20px;
     border-radius: 10px;
     width: 400px;
-    max-height: 90vh;
+    max-height: 86vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
 }
 
 .delivery-container h2 {
     color: orange;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-family: "Oleo Script", serif;
     text-align: center;
 }
@@ -486,7 +485,7 @@ footer {
     color: orange;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
     font-family: "Oleo Script", serif;
 }
 
@@ -502,7 +501,7 @@ footer {
 }
 
 #map {
-    height:200px;
+    height:300px;
     width: 100%;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -611,6 +610,12 @@ footer {
    .item .description{
         font-size: 12px;
         color: gray;
+    }
+
+    #Delivery{
+        display: flex;
+        justify-content: center;
+        align-items: normal;
     }
 }
 
