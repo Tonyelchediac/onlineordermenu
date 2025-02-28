@@ -481,6 +481,15 @@ footer {
     text-align: center;
 }
 
+.allTotal-for-dv{
+    color: orange;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1px;
+    font-family: "Oleo Script", serif;
+}
+
 #Delivery h1 {
     color: orange;
     font-size: 18px;

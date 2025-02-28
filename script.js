@@ -158,10 +158,11 @@ function updateCartCount() {
 }
 
 
-// Display cart items with total price
+let total = 0;
+
 function displayCartItems() {
     cartItems.innerHTML = "";
-    let total = 0;
+    total = 0;
     cart.forEach(item => {
         let li = document.createElement("li");
         li.textContent = `${item.name} x ${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`;
@@ -174,7 +175,32 @@ function displayCartItems() {
     } else {
         totalElement.textContent = `Total: $0.00`;
     }
+
+    updateDeliveryTotal();
 }
+
+function updateDeliveryTotal() {
+    const deliveryFee = 3.00;
+    const totalWithDelivery = total + deliveryFee;
+
+    document.getElementById('deliveryTotal').innerText = `$${totalWithDelivery.toFixed(2)}`;
+}
+
+// Example: Call `updateDeliveryTotal()` after cart modifications
+document.querySelectorAll(".plus").forEach(button => {
+    button.addEventListener("click", function () {
+        let item = this.parentElement.parentElement;
+        let name = item.getAttribute("data-name");
+        let cartItem = cart.find(cartItem => cartItem.name === name);
+
+        if (cartItem) {
+            cartItem.quantity++;
+            item.querySelector(".qty").textContent = cartItem.quantity;
+        }
+        updateCartCount();
+        displayCartItems();
+    });
+});
 
 // Clear cart
 clearCartBtn.addEventListener("click", function () {
@@ -333,9 +359,11 @@ document.getElementById('delivery-order-btn').addEventListener('click', function
   });
   message += `\nTotal: *$${total.toFixed(2)}*\n`;
   message += `Order Type: *${orderType}*\n\n`;
+  message += `*Final Total: $${(total+3).toFixed(2)}*\n\n`
   message += `Thank you Tony's!`;
   let whatsappURL = `https://wa.me/+96171096971?text=${encodeURIComponent(message.trim())}`;
   window.open(whatsappURL, '_blank');
 });
+
 
 window.onload = initMap;
